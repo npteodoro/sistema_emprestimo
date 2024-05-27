@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Details about {{ myuser.first_name }} {{ myuser.last_name }}
+{% endblock %}
+
+{% block content %}
+<h1>{{ myuser.first_name }} {{ myuser.last_name }}</h1>
+
+<p>Email: {{ myuser.email }}</p>
+<p>Id: {{ myuser.id }}</p>
+<a href = "{% url 'barcode' %}">
+    <img src="{% url 'barcode' %}" alt="Bar Code">
+</a>
+
+{% endblock %}
