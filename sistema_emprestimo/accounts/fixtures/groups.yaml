@@ -1,0 +1,18 @@
+# - model: auth.group
+#   pk: 1
+#   fields:
+#     name: admin
+#     permissions:
+#       - 1
+# - model: auth.group
+#   pk: 2
+#   fields:
+#     name: librarian
+#     permissions:
+#       - 1
+# - model: myapp.person
+#   pk: 3
+#   fields:
+#     name: readers
+#     permissions:
+#       - 1

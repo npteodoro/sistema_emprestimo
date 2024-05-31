@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Details about {{ object.title }} {{ object.author }}
+{% endblock %}
+
+{% block content %}
+<h1>User id: {{ object.id_account }}</h1>
+<p>Book id: {{ object.id_book }}</p>
+<p>Lend date: {{ object.lend_date }}</p>
+<p>Return date: {{ object.return_date }}</p>
+<p><a href="{% url 'lend-update' object.id %}">Edit</a></p>
+<p><a href="{% url 'lend-delete' object.id %}">Delete</a></p>
+
+{% endblock %}
