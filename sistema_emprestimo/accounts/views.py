@@ -8,6 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.contrib.auth.decorators import login_required
 from barcode.writer import SVGWriter
+from io import BytesIO
 
 class SignUpView(generic.CreateView):
     form_class = RegisterForm
@@ -26,5 +27,7 @@ def profile(request):
 @login_required
 def barcode(request):
     myuser = User.objects.get(username=request.user)
-    image=EAN13(str(myuser.id).zfill(13), writer=SVGWriter())
+    rv = BytesIO()
+    EAN13(str(myuser.id).zfill(12), writer=SVGWriter()).write(rv)
+    image = rv.getvalue().decode()
     return HttpResponse(image, content_type="image/svg+xml")
