@@ -8,4 +8,5 @@ urlpatterns = [
     path("add/", BookCreateView.as_view(), name="book-add"),
     path("<int:pk>/edit/", BookUpdateView.as_view(), name="book-update"),
     path("<int:pk>/delete/", BookDeleteView.as_view(), name="book-delete"),
+    path('barcode.svg?<int:id>', views.barcode, name='book-barcode')
 ]

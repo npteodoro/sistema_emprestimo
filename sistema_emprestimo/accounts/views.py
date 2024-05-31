@@ -3,12 +3,12 @@ from .forms import RegisterForm
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.models import User
-from barcode import EAN13
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.template import loader
 from django.contrib.auth.decorators import login_required
 from barcode.writer import SVGWriter
 from io import BytesIO
+from barcode import EAN13
 
 class SignUpView(generic.CreateView):
     form_class = RegisterForm
