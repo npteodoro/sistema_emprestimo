@@ -1,1 +1,3 @@
 django
+PyYAML
+python-barcode

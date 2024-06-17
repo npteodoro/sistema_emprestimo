@@ -1,18 +1,27 @@
-# - model: auth.group
-#   pk: 1
-#   fields:
-#     name: admin
-#     permissions:
-#       - 1
-# - model: auth.group
-#   pk: 2
-#   fields:
-#     name: librarian
-#     permissions:
-#       - 1
-# - model: myapp.person
-#   pk: 3
-#   fields:
-#     name: readers
-#     permissions:
-#       - 1
+- model: auth.group
+  pk: 1
+  fields:
+    name: admin
+    permissions:
+      - model: auth.permission
+        fields:
+          content_type: auth.user
+          codename: can_add_user
+- model: auth.group
+  pk: 2
+  fields:
+    name: librarian
+    permissions:
+      - model: auth.permission
+        fields:
+          content_type: auth.user
+          codename: can_add_user
+- model: auth.group
+  pk: 3
+  fields:
+    name: readers
+    permissions:
+      - model: auth.permission
+        fields:
+          content_type: library.book
+          codename: can_view_book
