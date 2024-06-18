@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Books</h2>
+    {% if recommended_list %}
+    <h2>Recommended Books for You</h2>
+    <ul>
+        {% for object in recommended_list %}
+            <li><a href="{% url 'book-detail' object.id %}">{{ object.title }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <h2>All Books</h2>
     <ul>
         {% for object in object_list %}
             <li><a href="{% url 'book-detail' object.id %}">{{ object.title }}</a></li>

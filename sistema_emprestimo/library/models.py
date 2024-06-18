@@ -5,6 +5,7 @@ class Book(models.Model):
     author = models.CharField(max_length=255)
     cdd = models.CharField(max_length=255)
     local = models.CharField(max_length=255)
+    rating = models.FloatField(null = True)
 
     def __str__(self):
         return f"{self.title}"

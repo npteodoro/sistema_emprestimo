@@ -31,3 +31,11 @@ def barcode(request):
     EAN13(str(myuser.id).zfill(12), writer=SVGWriter()).write(rv)
     image = rv.getvalue().decode()
     return HttpResponse(image, content_type="image/svg+xml")
+
+def contact(request):
+    myuser = User.objects.get(username=request.user)
+    template = loader.get_template('contact.html')
+    context = {
+    'myuser': myuser,
+  }
+    return HttpResponse(template.render(context, request))

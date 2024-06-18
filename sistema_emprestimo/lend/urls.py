@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import LendListView, LendDetailView, LendCreateView, LendUpdateView, LendDeleteView
+from .views import LendListView, LendDetailView, LendCreateView, LendUpdateView, LendDeleteView, LendNotificationView
 
 urlpatterns = [
     path('', LendListView.as_view(), name='lend-list'),
@@ -7,4 +7,5 @@ urlpatterns = [
     path("add/", LendCreateView.as_view(), name="lend-add"),
     path("<int:pk>/edit/", LendUpdateView.as_view(), name="lend-update"),
     path("<int:pk>/delete/", LendDeleteView.as_view(), name="lend-delete"),
+    path('notification/', LendNotificationView.as_view(), name='notification'),
 ]

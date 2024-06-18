@@ -24,5 +24,6 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path("library/", include("library.urls")),
     path("lend/", include("lend.urls")),
+    path("contact/", TemplateView.as_view(template_name="contact.html"), name="contact"),
     path("", TemplateView.as_view(template_name="home.html"), name="home"),
 ]

@@ -1,3 +1,10 @@
 django
+django-extensions
 PyYAML
 python-barcode
+ipykernel
+pandas
+numpy
+scikit-learn
+plotly
+nbformat
